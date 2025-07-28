@@ -1,5 +1,5 @@
 import Notification from "../models/notification.js";
-import Product from "../models/Product.js";
+import Product from "../models/product.js";
 
 // GET all notifications
 export const getNotifications = async (req, res) => {
