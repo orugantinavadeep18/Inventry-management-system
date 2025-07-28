@@ -58,7 +58,14 @@ export const deleteProduct = async (req, res) => {
 export const buyProduct = async (req, res) => {
   const { customerId, productId, quantity } = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(customerId) || !mongoose.Types.ObjectId.isValid(productId)) {
+  if (!customerId || !productId || !quantity) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
+
+  if (
+    !mongoose.Types.ObjectId.isValid(customerId) ||
+    !mongoose.Types.ObjectId.isValid(productId)
+  ) {
     return res.status(400).json({ message: "Invalid customer or product ID" });
   }
 
@@ -81,11 +88,13 @@ export const buyProduct = async (req, res) => {
 
     await newOrder.save();
 
-    req.app.get("io").emit("products:updated"); // 🔁 Notify clients
+    // Emit socket event to all clients (if socket.io is configured)
+    const io = req.app.get("io");
+    if (io) io.emit("products:updated");
 
     res.status(201).json({ message: "Order placed successfully", order: newOrder });
   } catch (err) {
-    console.error("❌ Error in buyProduct:", err.message);
+    console.error("❌ Error in buyProduct:", err);
     res.status(500).json({ message: "Failed to place order", error: err.message });
   }
 };
