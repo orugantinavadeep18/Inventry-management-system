@@ -14,6 +14,7 @@ This system helps **retailers** manage their products, stocks, suppliers, and no
 
 ### 🔐 User Roles
 - **Admin**
+- Only admin can accesss the login that admin can add or remove the customer creditionals of admin given at last
   - Full access to dashboard
   - Manage staff, products, categories, suppliers, orders
   - View stock insights and analytics
@@ -65,9 +66,5 @@ Other Tools:
 
 ---
 
-## 🧪 Installation
-
-1. **Clone the repo**  
-```bash
-git clone https://github.com/orugantinavadeep18/Inventry-management-system.git
-cd Inventry-management-system
+Creditional="a47982965@gmail.com"
+pass="admin"
