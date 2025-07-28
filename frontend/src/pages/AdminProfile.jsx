@@ -25,7 +25,7 @@ const AdminProfile = () => {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/users/${user._id}`, {
+      const res = await axios.put(`https://inventory-backend-rion.onrender.com/api/users/${user._id}`, {
         name: user.name,
         email: user.email,
       });

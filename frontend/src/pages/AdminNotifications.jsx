@@ -11,7 +11,7 @@ const Notifications = () => {
   const fetchNotifications = async () => {
     try {
       const token = localStorage.getItem("pos-token");
-      const res = await axios.get("http://localhost:5000/api/notifications", {
+      const res = await axios.get("https://inventory-backend-rion.onrender.com/api/notifications", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -28,7 +28,7 @@ const Notifications = () => {
     try {
       const token = localStorage.getItem("pos-token");
       await axios.put(
-        `http://localhost:5000/api/notifications/${id}/read`,
+        `https://inventory-backend-rion.onrender.com/api/notifications/${id}/read`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

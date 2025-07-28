@@ -18,7 +18,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/users/all");
+      const res = await axios.get("https://inventory-backend-rion.onrender.com/api/users/all");
       setUsers(res.data);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -32,7 +32,7 @@ const Users = () => {
   const addUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/users/add", formData);
+      await axios.post("https://inventory-backend-rion.onrender.com/api/users/add", formData);
       fetchUsers(); // Refresh user list
       setFormData({
         name: "",
@@ -48,7 +48,7 @@ const Users = () => {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/delete/${id}`);
+      await axios.delete(`https://inventory-backend-rion.onrender.com/api/users/delete/${id}`);
       fetchUsers(); // Refresh after deletion
     } catch (error) {
       console.error("Error deleting user:", error);

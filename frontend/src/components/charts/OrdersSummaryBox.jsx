@@ -10,7 +10,7 @@ const OrdersSummaryBox = () => {
 
   const fetchAllOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/orders");
+      const res = await axios.get("https://inventory-backend-rion.onrender.com/api/orders");
       setOrders(res.data);
     } catch (err) {
       console.error("❌ Error fetching admin orders:", err);

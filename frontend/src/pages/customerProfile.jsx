@@ -35,7 +35,7 @@ const CustomerProfile = () => {
     }
 
     try {
-      const res = await axios.put(`http://localhost:5000/api/users/${userId}`, formData);
+      const res = await axios.put(`https://inventory-backend-rion.onrender.com/api/users/${userId}`, formData);
       alert("✅ Profile updated successfully!");
       localStorage.setItem("user", JSON.stringify(res.data));
       setUser(res.data);

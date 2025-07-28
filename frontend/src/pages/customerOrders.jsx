@@ -16,7 +16,7 @@ const CustomerOrder = () => {
 
   const fetchOrders = async (userId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/orders?customerId=${userId}`);
+      const res = await axios.get(`https://inventory-backend-rion.onrender.com/api/orders?customerId=${userId}`);
       const activeOrders = res.data.filter((order) => order.status !== "completed");
       setOrders(activeOrders);
     } catch (err) {
@@ -32,7 +32,7 @@ const CustomerOrder = () => {
     }
 
     try {
-      await axios.post(`http://localhost:5000/api/orders/removeQuantity`, {
+      await axios.post(`https://inventory-backend-rion.onrender.com/api/orders/removeQuantity`, {
         orderId: order._id,
         quantity: qtyToRemove,
       });
@@ -46,7 +46,7 @@ const CustomerOrder = () => {
 
   const handleCompleteOrder = async (orderId) => {
   try {
-    await axios.post(`http://localhost:5000/api/orders/complete`, { orderId });
+    await axios.post(`https://inventory-backend-rion.onrender.com/api/orders/complete`, { orderId });
     alert("✅ Order completed.");
     // Refetch only incomplete orders
     fetchOrders(user._id || user.id);

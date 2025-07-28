@@ -14,7 +14,7 @@ const StockLevelDistributionChart = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products/")
+    axios.get("https://inventory-backend-rion.onrender.com/api/products/")
       .then(res => {
         const products = res.data;
         const ranges = {

@@ -17,7 +17,7 @@ const Categories = () => {
       return;
     }
 
-    const response = await axios.get("http://localhost:5000/api/category/all", {
+    const response = await axios.get("https://inventory-backend-rion.onrender.com/api/category/all", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -60,8 +60,8 @@ const Categories = () => {
       };
 
       const url = editingId
-        ? `http://localhost:5000/api/category/update/${editingId}`
-        : "http://localhost:5000/api/category/add";
+        ? `https://inventory-backend-rion.onrender.com/api/category/update/${editingId}`
+        : "https://inventory-backend-rion.onrender.com/api/category/add";
 
       const method = editingId ? axios.put : axios.post;
 
@@ -104,7 +104,7 @@ const Categories = () => {
 
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
-        const response = await axios.delete(`http://localhost:5000/api/category/delete/${id}`, {
+        const response = await axios.delete(`https://inventory-backend-rion.onrender.com/api/category/delete/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

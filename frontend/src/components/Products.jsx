@@ -4,7 +4,7 @@ import { Dialog } from "@headlessui/react";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000"); // Adjust to match your backend
+const socket = io("https://inventory-backend-rion.onrender.com"); // Adjust to match your backend
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +21,7 @@ const Product = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://inventory-backend-rion.onrender.com0/api/products");
       setProducts(res.data);
     } catch (err) {
       console.error("Error fetching products:", err);
@@ -71,9 +71,9 @@ const Product = () => {
   const saveProduct = async () => {
     try {
       if (form._id) {
-        await axios.put(`http://localhost:5000/api/products/${form._id}`, form);
+        await axios.put(`https://inventory-backend-rion.onrender.com/api/products/${form._id}`, form);
       } else {
-        await axios.post("http://localhost:5000/api/products", form);
+        await axios.post("https://inventory-backend-rion.onrender.com/api/products", form);
       }
       setIsOpen(false);
     } catch (err) {
@@ -83,7 +83,7 @@ const Product = () => {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://inventory-backend-rion.onrender.com/api/products/${id}`);
     } catch (err) {
       console.error("Error deleting product:", err);
     }

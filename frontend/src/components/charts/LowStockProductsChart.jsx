@@ -16,7 +16,7 @@ const LowStockProductsChart = () => {
   useEffect(() => {
     const fetchLowStock = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products");
+        const res = await axios.get("https://inventory-backend-rion.onrender.com/api/products");
         const threshold = 10;
         const lowStock = res.data.filter((p) => p.stock <= threshold);
         const otherStock = res.data.filter((p) => p.stock > threshold);

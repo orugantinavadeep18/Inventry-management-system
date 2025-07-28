@@ -7,7 +7,7 @@ const ProductStockTrendChart = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products/stock-trend")
+    axios.get("https://inventory-backend-rion.onrender.com/api/products/stock-trend")
       .then(res => setData(res.data))
       .catch(err => console.error("Stock trend error:", err));
   }, []);

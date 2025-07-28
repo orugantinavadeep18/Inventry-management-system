@@ -14,7 +14,7 @@ const CustomerProducts = () => {
 
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products");
+        const res = await axios.get("https://inventory-backend-rion.onrender.com/api/products");
         setProducts(res.data);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -53,10 +53,10 @@ const CustomerProducts = () => {
         quantity,
       };
 
-      await axios.post("http://localhost:5000/api/products/buy", orderData);
+      await axios.post("https://inventory-backend-rion.onrender.com/api/products/buy", orderData);
       alert("✅ Order placed successfully!");
 
-      const updated = await axios.get("http://localhost:5000/api/products");
+      const updated = await axios.get("https://inventory-backend-rion.onrender.com/api/products");
       setProducts(updated.data);
     } catch (err) {
       console.error("❌ Order error:", err);
@@ -86,7 +86,7 @@ const CustomerProducts = () => {
                   src={
                     product.image?.startsWith("http")
                       ? product.image
-                      : `http://localhost:5000/uploads/${product.image}`
+                      : `https://inventory-backend-rion.onrender.com/uploads/${product.image}`
                   }
                   alt={product.name}
                   className="w-full h-40 object-cover rounded mb-3"

@@ -70,7 +70,7 @@ const Suppliers = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this supplier?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/suppliers/${id}`, {
+      await axios.delete(`https://inventory-backend-rion.onrender.com/api/suppliers/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("pos-token")}`,
         },
