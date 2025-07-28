@@ -41,25 +41,25 @@ const Notifications = () => {
   };
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow">
-      <h2 className="text-xl font-bold mb-4">🔔 Unread Notifications</h2>
+    <div className="p-4 bg-[#0F0B1D] rounded-xl shadow-lg text-white">
+      <h2 className="text-xl font-semibold mb-4">🔔 Unread Notifications</h2>
       {notifications.length === 0 ? (
-        <p className="text-gray-500">No unread notifications.</p>
+        <p className="text-gray-400">No unread notifications.</p>
       ) : (
         notifications.map((note) => (
           <div
             key={note._id}
-            className="flex items-center justify-between p-3 bg-gray-100 mb-2 rounded-lg"
+            className="flex items-center justify-between p-3 bg-white/5 mb-3 rounded-lg"
           >
             <div>
-              <div>{note.message}</div>
-              <div className="text-xs text-gray-500">
+              <div className="text-white/90">{note.message}</div>
+              <div className="text-xs text-white/50">
                 {new Date(note.createdAt).toLocaleString()}
               </div>
             </div>
             <button
               onClick={() => markAsRead(note._id)}
-              className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+              className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition"
             >
               Mark as read
             </button>
